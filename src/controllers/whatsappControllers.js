@@ -5,7 +5,6 @@ const VerifyToken = (req, res) => {
     let challenge = req.query["hub.challenge"];
 
     if (challenge != null && token != null && token == accessToken) {
-
       res.send(challenge);
     } else {
       res.status(400).send();
@@ -16,51 +15,50 @@ const VerifyToken = (req, res) => {
 };
 
 const ReceivedMessage = (req, res) => {
-  try{
-
-    let entry = (req.body["entry"])[0];
-    let changes = (entry["changes"])[0];
+  try {
+    let entry = req.body["entry"][0];
+    let changes = entry["changes"][0];
     let value = changes["value"];
     let messageObject = value["messages"];
-    let messages = messageObject[0];
-    let text = GetTextFromUser(messages);
 
-    console.log(text);
+    if (typeof messageObject != "undefined") {
+      let messages = messageObject[0];
+      let text = GetTextFromUser(messages);
+
+      console.log(text);
+    }
 
     res.send("EVENT_RECEIVED");
-  }catch(error){
+  } catch (error) {
     console.log(error);
     res.send("EVENT_RECEIVED");
   }
 };
 
 const GetTextFromUser = (messages) => {
-    let text = "";
-    let typeMessage = messages["type"];
+  let text = "";
+  let typeMessage = messages["type"];
 
-    if(typeMessage == "text") {
-        text = (messages["text"])["body"];
+  if (typeMessage == "text") {
+    text = messages["text"]["body"];
+  } else if (typeMessage == "interactive") {
+    let interactiveObject = messages["interactive"];
+    let typeInteractive = interactiveObject["type"];
+    console.log(interactiveObject);
 
-
-    } else if(typeMessage == "interactive") {
-        let interactiveObject = messages["interactive"];
-        let typeInteractive = interactiveObject["type"];
-        console.log(interactiveObject)
-
-        if(typeInteractive == "button_reply"){
-            text = (interactiveObject["button_reply"])["title"];
-
-        } else if (typeInteractive == "list_reply") {
-            text = (interactiveObject["list_reply"])["title"];
-        } else {
-            console.log("sin mensaje");
-        }
+    if (typeInteractive == "button_reply") {
+      text = interactiveObject["button_reply"]["title"];
+    } else if (typeInteractive == "list_reply") {
+      text = interactiveObject["list_reply"]["title"];
     } else {
-        console.log("sin mensaje");
+      console.log("sin mensaje");
     }
+  } else {
+    console.log("sin mensaje");
+  }
 
-    return text;
-}
+  return text;
+};
 
 module.exports = {
   VerifyToken,
