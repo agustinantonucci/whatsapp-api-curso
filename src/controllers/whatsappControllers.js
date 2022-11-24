@@ -1,5 +1,5 @@
-const fs = require("fs");
-const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
+// const fs = require("fs");
+// const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
 
 const VerifyToken = (req, res) => {
   try {
@@ -8,7 +8,7 @@ const VerifyToken = (req, res) => {
     let challenge = req.query["hub.challenge"];
 
     if (challenge != null && token != null && token == accessToken) {
-        
+
       res.send(challenge);
     } else {
       res.status(400).send();
@@ -26,7 +26,7 @@ const ReceivedMessage = (req, res) => {
     let value = changes["value"];
     let messageObject = value["messages"];
 
-    myConsole.log(messageObject)
+    // myConsole.log(messageObject)
 
     res.send("EVENT_RECEIVED");
   }catch(error){
