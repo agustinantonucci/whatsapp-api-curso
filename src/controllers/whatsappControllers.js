@@ -2,7 +2,7 @@ const whatsappService = require("../services/whatsappService.js");
 
 const VerifyToken = (req, res) => {
   try {
-    let accessToken = "TASITUQUWOE1817IU5I1IAUSDF";
+    let accessToken = "EAAZAIkjWxJeMBAISLpaNj95me4i5xksUzOnmBajRfW12lN3GXNxGjHKHBdPOPXjvo8ORV8C0vs82mTFltqHFviXWVjHmBRlraJLxkLl6H9hiOwWdxfmMto9rzpzp99EM51at9ZCNoTZCVRKsinBggXSWQIZAJZBrAmNdylbb03zOyKkywmwqNLJItOnicL5oGyuK4RRgmeQZDZD";
     let token = req.query["hub.verify_token"];
     let challenge = req.query["hub.challenge"];
 
