@@ -105,10 +105,10 @@ const SampleList = (number) => {
     interactive: {
       type: "list",
       body: {
-        text: "Tengo estas opciones"
+        text: "Tengo estas opciones",
       },
       footer: {
-        text: "Selecciona una de las opciones para poder atenderte."
+        text: "Selecciona una de las opciones para poder atenderte.",
       },
       action: {
         button: "Ver opciones",
@@ -134,19 +134,46 @@ const SampleList = (number) => {
               {
                 id: "main-agencia",
                 title: "Agencia",
-                description: "Puedes visitar nuestra agencia."
+                description: "Puedes visitar nuestra agencia.",
               },
               {
                 id: "main-contacto",
                 title: "Centro de contacto",
-                description: "Te atenderá uno de nuestros agentes."
-              }
-            ]
-          }
-        ]
-      }
-    }
+                description: "Te atenderá uno de nuestros agentes.",
+              },
+            ],
+          },
+        ],
+      },
+    },
   });
 
   return data;
+};
+
+const SampleLocation = (number) => {
+  const data = JSON.stringify({
+    messaging_product: "whatsapp",
+    to: number,
+    type: "location",
+    location: {
+      latitude: "-32.39005627985419",
+      longitude: "-63.24546387426719",
+      name: "Casa",
+      address: "Quinquela Martin 2107",
+    },
+  });
+
+  return data;
+};
+
+module.exports = {
+  SampleText,
+  SampleAudio,
+  SampleButtons,
+  SampleDocument,
+  SampleImage,
+  SampleList,
+  SampleLocation,
+  SampleVideo,
 };

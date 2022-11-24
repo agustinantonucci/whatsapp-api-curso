@@ -1,4 +1,5 @@
 const whatsappService = require("../services/whatsappService.js");
+const samples = require("../shared/sampleModels.js");
 
 const VerifyToken = (req, res) => {
   try {
@@ -28,9 +29,39 @@ const ReceivedMessage = (req, res) => {
       let number = messages["from"];
       let text = GetTextFromUser(messages);
 
-      console.log(text);
-      console.log(number);
-      whatsappService.SendMessageWhatsApp("El usuario dijo: " + text, number);
+      let data;
+
+      switch (text) {
+        case "text":
+          data = samples.SampleText("Hola usuario", number);
+          break;
+        case "image":
+          data = samples.SampleImage(number);
+          break;
+        case "audio":
+          data = samples.SampleAudio(number);
+          break;
+        case "video":
+          data = samples.SampleVideo(number);
+          break;
+        case "document":
+          data = samples.SampleDocument(number);
+          break;
+        case "button":
+          data = samples.SampleButtons(number);
+          break;
+        case "list":
+          data = samples.SampleList(number);
+          break;
+        case "location":
+          data = samples.SampleLocation(number);
+          break;
+        default:
+          data = samples.SampleText("No entiendo que tipo es", number);
+          break;
+      }
+
+      whatsappService.SendMessageWhatsApp(data);
     }
 
     res.send("EVENT_RECEIVED");
