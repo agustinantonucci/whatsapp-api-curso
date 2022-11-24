@@ -4,7 +4,7 @@ const SendMessageWhatsApp = (textResponse, number) => {
 
   const data = JSON.stringify({
     messaging_product: "whatsapp",
-    to: "543535632409",
+    to: 543535632409,
     type: "text",
     text: {
       body: textResponse,
