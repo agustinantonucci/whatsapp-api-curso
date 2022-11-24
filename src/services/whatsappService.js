@@ -18,7 +18,7 @@ const SendMessageWhatsApp = (textResponse, number) => {
     headers: {
       "Content-type": "application/json",
       Authorization:
-        "Bearer EAAZAIkjWxJeMBAMjAQeq2QyDt2zD38DZCj71gIW9q2TNYwJO4ZC09WxpA5ThNEtoqiHXCls7sZCtLfzZC6kfTC6EwEMTwETXNB8bz9TVERgkE9ftqamJ818sg6PLDlGvxVEb5wmbLcA9VrGve5jVXVlOYSq4BmgmYu84PsWVNGFaHM3XF9uRr",
+        "Bearer EAAZAIkjWxJeMBAISLpaNj95me4i5xksUzOnmBajRfW12lN3GXNxGjHKHBdPOPXjvo8ORV8C0vs82mTFltqHFviXWVjHmBRlraJLxkLl6H9hiOwWdxfmMto9rzpzp99EM51at9ZCNoTZCVRKsinBggXSWQIZAJZBrAmNdylbb03zOyKkywmwqNLJItOnicL5oGyuK4RRgmeQZDZD",
     },
   };
 
