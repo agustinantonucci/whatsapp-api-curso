@@ -1,7 +1,6 @@
 const https = require("https");
 
 const SendMessageWhatsApp = (data) => {
-  
   const options = {
     host: "graph.facebook.com",
     path: "/v15.0/105751265702583/messages",
@@ -14,22 +13,20 @@ const SendMessageWhatsApp = (data) => {
     },
   };
 
-  const req = https.request(options, res => {
-    res.on("data", d => {
-        console.log(d);
-    })
+  const req = https.request(options, (res) => {
+    res.on("data", (d) => {
+      process.stdout.write(d);
+    });
   });
 
-  console.log(req);
-
-  req.on("error", error => {
+  req.on("error", (error) => {
     console.error(error);
-  })
+  });
 
   req.write(data);
   req.end();
 };
 
 module.exports = {
-    SendMessageWhatsApp
-}
+  SendMessageWhatsApp,
+};
