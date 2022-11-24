@@ -1,6 +1,3 @@
-// const fs = require("fs");
-// const myConsole = new console.Console(fs.createWriteStream("./logs.txt"));
-
 const VerifyToken = (req, res) => {
   try {
     let accessToken = "TASITUQUWOE1817IU5I1IAUSDF";
@@ -25,18 +22,45 @@ const ReceivedMessage = (req, res) => {
     let changes = (entry["changes"])[0];
     let value = changes["value"];
     let messageObject = value["messages"];
+    let messages = messageObject[0];
+    let text = GetTextFromUser(messages);
 
     console.log(messageObject);
 
-    // myConsole.log(messageObject)
-
     res.send("EVENT_RECEIVED");
   }catch(error){
-    // myConsole.log(error);
     console.log(error);
     res.send("EVENT_RECEIVED");
   }
 };
+
+const GetTextFromUser = (messages) => {
+    let text = "";
+    let typeMessage = messages["type"];
+
+    if(typeMessage == "text") {
+        text = (messages["text"])["body"];
+
+
+    } else if(typeMessage == "interactive") {
+        let interactiveObject = messages["interactive"];
+        let typeInteractive = interactiveObject["type"];
+        console.log(interactiveObject)
+
+        if(typeInteractive == "button_reply"){
+            text = (interactiveObject["button_reply"])["title"];
+
+        } else if (typeInteractive == "list_reply") {
+            text = (interactiveObject["list_reply"])["title"];
+        } else {
+            console.log("sin mensaje");
+        }
+    } else {
+        console.log("sin mensaje");
+    }
+
+    return text;
+}
 
 module.exports = {
   VerifyToken,
