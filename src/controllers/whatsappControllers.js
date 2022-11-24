@@ -25,7 +25,7 @@ const ReceivedMessage = (req, res) => {
     let messages = messageObject[0];
     let text = GetTextFromUser(messages);
 
-    console.log(messageObject);
+    console.log(text);
 
     res.send("EVENT_RECEIVED");
   }catch(error){
