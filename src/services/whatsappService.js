@@ -18,7 +18,7 @@ const SendMessageWhatsApp = (textResponse, number) => {
     headers: {
       "Content-type": "application/json",
       Authorization:
-        "Bearer EAAZAIkjWxJeMBAISLpaNj95me4i5xksUzOnmBajRfW12lN3GXNxGjHKHBdPOPXjvo8ORV8C0vs82mTFltqHFviXWVjHmBRlraJLxkLl6H9hiOwWdxfmMto9rzpzp99EM51at9ZCNoTZCVRKsinBggXSWQIZAJZBrAmNdylbb03zOyKkywmwqNLJItOnicL5oGyuK4RRgmeQZDZD",
+        "Bearer 123513143613",
     },
   };
 
@@ -27,6 +27,8 @@ const SendMessageWhatsApp = (textResponse, number) => {
         process.stdout.write(d);
     })
   });
+
+  console.log(req);
 
   req.on("error", error => {
     console.error(error);
