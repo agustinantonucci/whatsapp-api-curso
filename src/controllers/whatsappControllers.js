@@ -8,6 +8,7 @@ const VerifyToken = (req, res) => {
     let challenge = req.query["hub.challenge"];
 
     if (challenge != null && token != null && token == accessToken) {
+        
       res.send(challenge);
     } else {
       res.status(400).send();
