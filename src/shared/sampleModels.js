@@ -4,8 +4,8 @@ const SampleText = (textResponse, number) => {
     to: number,
     type: "text",
     text: {
-      body: textResponse,
-    },
+      body: textResponse
+    }
   });
 
   return data;
@@ -18,7 +18,7 @@ const SampleImage = (number) => {
     type: "image",
     image: {
       link: "https://file-examples.com/storage/fe8109a782637e9df99d7a0/2017/10/file_example_JPG_100kB.jpg"
-    },
+    }
   });
 
   return data;
@@ -31,7 +31,7 @@ const SampleAudio = (number) => {
     type: "audio",
     audio: {
       link: "https://file-examples.com/storage/fe8109a782637e9df99d7a0/2017/11/file_example_MP3_1MG.mp3"
-    },
+    }
   });
 
   return data;
@@ -44,7 +44,7 @@ const SampleVideo = (number) => {
     type: "video",
     video: {
       link: "https://file-examples.com/storage/fe4b6a81a0637fef794ccfe/2017/04/file_example_MP4_480_1_5MG.mp4"
-    },
+    }
   });
 
   return data;
@@ -56,8 +56,8 @@ const SampleDocument = (number) => {
     to: number,
     type: "document",
     document: {
-      link: "https://file-examples.com/storage/fe8109a782637e9df99d7a0/2017/10/file-sample_150kB.pdf",
-    },
+      link: "https://file-examples.com/storage/fe8109a782637e9df99d7a0/2017/10/file-sample_150kB.pdf"
+    }
   });
 
   return data;
