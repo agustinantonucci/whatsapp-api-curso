@@ -1,4 +1,5 @@
 const whatsappService = require("../services/whatsappService.js");
+const processMessage = require("../shared/processMessage.js");
 const samples = require("../shared/sampleModels.js");
 
 const VerifyToken = (req, res) => {
@@ -35,35 +36,39 @@ const ReceivedMessage = (req, res) => {
         number = number.substring(0, 2) + number.substring(3, number.length);
       }
 
-      switch (text) {
-        case "text":
-          data = samples.SampleText("Hola usuario", number);
-          break;
-        case "image":
-          data = samples.SampleImage(number);
-          break;
-        case "audio":
-          data = samples.SampleAudio(number);
-          break;
-        case "video":
-          data = samples.SampleVideo(number);
-          break;
-        case "document":
-          data = samples.SampleDocument(number);
-          break;
-        case "button":
-          data = samples.SampleButtons(number);
-          break;
-        case "list":
-          data = samples.SampleList(number);
-          break;
-        case "location":
-          data = samples.SampleLocation(number);
-          break;
-        default:
-          data = samples.SampleText("No entiendo que tipo es", number);
-          break;
+      if( text != "") {
+        processMessage.Process(text, number);
       }
+
+      // switch (text) {
+      //   case "text":
+      //     data = samples.SampleText("Hola usuario", number);
+      //     break;
+      //   case "image":
+      //     data = samples.SampleImage(number);
+      //     break;
+      //   case "audio":
+      //     data = samples.SampleAudio(number);
+      //     break;
+      //   case "video":
+      //     data = samples.SampleVideo(number);
+      //     break;
+      //   case "document":
+      //     data = samples.SampleDocument(number);
+      //     break;
+      //   case "button":
+      //     data = samples.SampleButtons(number);
+      //     break;
+      //   case "list":
+      //     data = samples.SampleList(number);
+      //     break;
+      //   case "location":
+      //     data = samples.SampleLocation(number);
+      //     break;
+      //   default:
+      //     data = samples.SampleText("No entiendo que tipo es", number);
+      //     break;
+      // }
 
       whatsappService.SendMessageWhatsApp(data);
     }
