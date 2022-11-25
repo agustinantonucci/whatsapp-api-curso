@@ -32,8 +32,10 @@ const ReceivedMessage = (req, res) => {
       let data;
 
       console.log("Numero: ", number);
-
-      number = "543535632409";
+      if (number.length > 12) {
+        number = number.substring(0, 1) + number.substring(3, number.length);
+      }
+      // number = "543535632409";
 
       console.log("Numero: ", number);
 
@@ -82,17 +84,17 @@ const GetTextFromUser = (messages) => {
   let typeMessage = messages["type"];
 
   if (typeMessage == "text") {
-    text = (messages["text"])["body"];
+    text = messages["text"]["body"];
   } else if (typeMessage == "interactive") {
     let interactiveObject = messages["interactive"];
     let typeInteractive = interactiveObject["type"];
     console.log(interactiveObject);
 
     if (typeInteractive == "button_reply") {
-      text = (interactiveObject["button_reply"])["title"];
+      text = interactiveObject["button_reply"]["title"];
       console.log(text);
     } else if (typeInteractive == "list_reply") {
-      text = (interactiveObject["list_reply"])["title"];
+      text = interactiveObject["list_reply"]["title"];
     } else {
       console.log("sin mensaje");
     }
