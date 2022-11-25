@@ -1,6 +1,6 @@
-const whatsappService = require("../services/whatsappService.js");
 const processMessage = require("../shared/processMessage.js");
-const samples = require("../shared/sampleModels.js");
+// const whatsappService = require("../services/whatsappService.js");
+// const samples = require("../shared/sampleModels.js");
 
 const VerifyToken = (req, res) => {
   try {
@@ -30,7 +30,7 @@ const ReceivedMessage = (req, res) => {
       let number = messages["from"];
       let text = GetTextFromUser(messages);
 
-      let data;
+      // let data;
 
       if (number.length > 12) {
         number = number.substring(0, 2) + number.substring(3, number.length);
