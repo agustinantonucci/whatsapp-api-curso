@@ -12,7 +12,11 @@ const Process = (textUser, number) => {
     models.push(whatsappModel.MessageText("Gracias a ti por escribirme", number));
   } else if (textUser.includes("adios") || textUser.includes("bye") || textUser.includes("me voy")) {
     models.push(whatsappModel.MessageText("Hasta la próxima", number));
-  } else {
+  } else if (textUser.includes("comprar")) {
+    models.push(whatsappModel.MessageText("Registrate en el siguiente formulario para comprar: https://www.youtube.com/watch?v=YGICYKnIm2A", number));
+  } else if (textUser.includes("vender")) {
+    models.push(whatsappModel.MessageText("Registrate en el siguiente formulario para vender: https://www.youtube.com/watch?v=YGICYKnIm2A", number));
+  }else {
     models.push(whatsappModel.MessageText("No entiendo lo que dices", number));
   }
 
