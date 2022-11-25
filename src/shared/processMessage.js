@@ -7,9 +7,9 @@ const Process = (textUser, number) => {
 
   if (textUser.includes("hola")) {
     models.push(whatsappModel.MessageText("Hola, un gusto saludarte", number));
+    models.push(whatsappModel.MessageList(number));
   } else if (textUser.includes("gracias")) {
     models.push(whatsappModel.MessageText("Gracias a ti por escribirme", number));
-    models.push(whatsappModel.MessageList(number));
   } else if (textUser.includes("adios") || textUser.includes("bye") || textUser.includes("me voy")) {
     models.push(whatsappModel.MessageText("Hasta la próxima", number));
   } else {
