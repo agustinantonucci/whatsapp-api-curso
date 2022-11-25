@@ -31,13 +31,9 @@ const ReceivedMessage = (req, res) => {
 
       let data;
 
-      console.log("Numero: ", number);
       if (number.length > 12) {
         number = number.substring(0, 2) + number.substring(3, number.length);
       }
-      // number = "543535632409";
-
-      console.log("Numero: ", number);
 
       switch (text) {
         case "text":
