@@ -37,6 +37,7 @@ const ReceivedMessage = (req, res) => {
       }
 
       if( text != "") {
+        console.log(text, number)
         processMessage.Process(text, number);
       }
 
