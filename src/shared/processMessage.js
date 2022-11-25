@@ -13,9 +13,9 @@ const Process = (textUser, number) => {
   } else if (textUser.includes("adios") || textUser.includes("bye") || textUser.includes("me voy")) {
     models.push(whatsappModel.MessageText("Hasta la próxima", number));
   } else if (textUser.includes("comprar")) {
-    models.push(whatsappModel.MessageText("Registrate en el siguiente formulario para comprar: https://www.youtube.com/watch?v=YGICYKnIm2A", number));
+    models.push(whatsappModel.MessageComprar(number));
   } else if (textUser.includes("vender")) {
-    models.push(whatsappModel.MessageText("Registrate en el siguiente formulario para vender: https://www.youtube.com/watch?v=YGICYKnIm2A", number));
+    models.push(whatsappModel.MessageVender(number));
   }else {
     models.push(whatsappModel.MessageText("No entiendo lo que dices", number));
   }
