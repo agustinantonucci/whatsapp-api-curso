@@ -31,6 +31,8 @@ const ReceivedMessage = (req, res) => {
 
       let data;
 
+      console.log("Numero: ", number);
+
       number = "543535632409";
 
       console.log("Numero: ", number);
