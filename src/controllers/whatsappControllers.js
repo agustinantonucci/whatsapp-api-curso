@@ -31,6 +31,8 @@ const ReceivedMessage = (req, res) => {
 
       let data;
 
+      console.log("Numero: ", number);
+
       switch (text) {
         case "text":
           data = samples.SampleText("Hola usuario", number);
