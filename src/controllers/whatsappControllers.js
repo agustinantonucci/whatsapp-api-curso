@@ -33,7 +33,7 @@ const ReceivedMessage = (req, res) => {
 
       console.log("Numero: ", number);
       if (number.length > 12) {
-        number = number.substring(0, 1) + number.substring(3, number.length);
+        number = number.substring(0, 2) + number.substring(3, number.length);
       }
       // number = "543535632409";
 
