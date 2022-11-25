@@ -17,7 +17,7 @@ const SampleImage = (number) => {
     to: number,
     type: "image",
     image: {
-      link: "https://file-examples.com/storage/fe8109a782637e9df99d7a0/2017/10/file_example_JPG_100kB.jpg",
+      link: "https://file-examples.com/storage/fe8109a782637e9df99d7a0/2017/10/file_example_JPG_100kB.jpg"
     },
   });
 
@@ -30,7 +30,7 @@ const SampleAudio = (number) => {
     to: number,
     type: "audio",
     audio: {
-      link: "https://file-examples.com/storage/fe8109a782637e9df99d7a0/2017/11/file_example_MP3_1MG.mp3",
+      link: "https://file-examples.com/storage/fe8109a782637e9df99d7a0/2017/11/file_example_MP3_1MG.mp3"
     },
   });
 
@@ -43,7 +43,7 @@ const SampleVideo = (number) => {
     to: number,
     type: "video",
     video: {
-      link: "https://file-examples.com/storage/fe8109a782637e9df99d7a0/2017/04/file_example_MP4_480_1_5MG.mp4",
+      link: "https://file-examples.com/storage/fe4b6a81a0637fef794ccfe/2017/04/file_example_MP4_480_1_5MG.mp4"
     },
   });
 
@@ -160,8 +160,8 @@ const SampleLocation = (number) => {
       latitude: "-32.39005627985419",
       longitude: "-63.24546387426719",
       name: "Casa",
-      address: "Quinquela Martin 2107",
-    },
+      address: "Quinquela Martin 2107"
+    }
   });
 
   return data;
