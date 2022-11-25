@@ -71,7 +71,7 @@ const ReceivedMessage = (req, res) => {
       //     break;
       // }
 
-      whatsappService.SendMessageWhatsApp(data);
+      // whatsappService.SendMessageWhatsApp(data);
     }
 
     res.send("EVENT_RECEIVED");
