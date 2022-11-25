@@ -13,6 +13,7 @@ const Process = (textUser, number) => {
   } else if (textUser.includes("adios") || textUser.includes("bye") || textUser.includes("me voy")) {
     models.push(whatsappModel.MessageText("Hasta la próxima", number));
   } else if (textUser.includes("comprar")) {
+    
     models.push(whatsappModel.MessageComprar(number));
   } else if (textUser.includes("vender")) {
     models.push(whatsappModel.MessageVender(number));
